@@ -28,3 +28,6 @@ func hit(_ball):
 	tween.tween_property($Images/Highlight, "modulate:a", 0.0, time_highlight)
 	$Images/Highlight.scale = Vector2(2.0,2.0)
 	tween.tween_property($Images/Highlight, "scale", Vector2(1.0,1.0), time_highlight_size).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
+	var paddle_sound = get_node_or_null("/root/Game/Paddle_sound")
+	if paddle_sound != null:
+		paddle_sound.play()

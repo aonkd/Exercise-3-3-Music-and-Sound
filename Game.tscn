@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://sp64y2eqbd63"]
+[gd_scene load_steps=18 format=3 uid="uid://sp64y2eqbd63"]
 
 [ext_resource type="Script" path="res://Brick/Brick_Container.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://cfb204qt38vvo" path="res://Paddle/Paddle.tscn" id="2"]
+[ext_resource type="Script" path="res://Ball/Comet_Container.gd" id="2_6hukp"]
 [ext_resource type="Script" path="res://Ball/Ball_Container.gd" id="3"]
 [ext_resource type="Script" path="res://Game.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://bna1k8dkka5xx" path="res://UI/Pause_Menu.tscn" id="5"]
@@ -9,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://cb6abwxodebx1" path="res://UI/HUD.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://d03l3yccdo8fa" path="res://UI/Instructions.tscn" id="8"]
 [ext_resource type="Script" path="res://Effects/Camera.gd" id="9"]
+[ext_resource type="AudioStream" uid="uid://bh3742so3qw8u" path="res://Assets/juicy music copy.wav" id="10_mu1ji"]
+[ext_resource type="AudioStream" uid="uid://d1ev6cc8x0bue" path="res://Assets/nice.wav" id="11_3y5vu"]
+[ext_resource type="AudioStream" uid="uid://bxyr2tudpepob" path="res://Assets/wall copy.wav" id="12_udnwd"]
+[ext_resource type="AudioStream" uid="uid://dilmei8hado6a" path="res://Assets/die copy.wav" id="13_fllen"]
+[ext_resource type="AudioStream" uid="uid://dlcblrfefch1y" path="res://Assets/brick copy.wav" id="14_jixg5"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(200, 1000)
@@ -18,6 +24,9 @@ size = Vector2(1224, 200)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("4")
+
+[node name="Comet_Container" type="Node2D" parent="."]
+script = ExtResource("2_6hukp")
 
 [node name="Wall_Container" type="Node2D" parent="."]
 
@@ -74,3 +83,20 @@ visible = false
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("9")
+
+[node name="Paddle_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_3y5vu")
+
+[node name="Wall_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_udnwd")
+pitch_scale = 4.0
+
+[node name="Die_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_fllen")
+
+[node name="Brick_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_jixg5")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_mu1ji")
+autoplay = true
